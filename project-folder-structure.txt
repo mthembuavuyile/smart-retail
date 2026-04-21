@@ -1,0 +1,68 @@
+smart_retail_system/
+│
+├── public/                     Web root — all browser-accessible URLs.
+│   ├── index.php               Homepage with hero banner and product grid.
+│   ├── register.php            Customer registration form.
+│   ├── login.php               Customer login form.
+│   ├── logout.php              Session teardown, redirects to homepage.
+│   ├── products.php            Full product catalogue listing.
+│   ├── product_details.php     Single product view with add-to-cart.
+│   ├── cart.php                Shopping cart (add/remove/view).
+│   ├── checkout.php            Order summary and placement form.
+│   ├── order_confirmation.php  Post-checkout success page with order details.
+│   ├── order_history.php       Logged-in customer's past orders.
+│   │
+│   ├── admin/                  Staff-only administration section.
+│   │   ├── index.php           Admin login.
+│   │   ├── dashboard.php       Overview stats, recent orders, stock alerts.
+│   │   ├── orders.php          View and update order statuses.
+│   │   ├── inventory.php       View and adjust product stock levels.
+│   │   └── reports.php         Low-stock and sales summary reports.
+│   │
+│   ├── css/
+│   │   └── style.css           Main stylesheet (design system + all components).
+│   │
+│   ├── js/
+│   │   ├── main.js             Navigation toggle, confirmations, animations.
+│   │   └── cart.js             AJAX cart quantity updates (placeholder).
+│   │
+│   └── images/                 Product images (if stored locally).
+│
+├── src/                        Backend logic — not web-accessible.
+│   ├── Core/
+│   │   ├── db_connect.php      PDO connection factory.
+│   │   └── functions.php       Helpers: sanitise, session, auth guards, formatting.
+│   │
+│   ├── Customer/
+│   │   └── CustomerManager.php Registration and login.
+│   │
+│   ├── Product/
+│   │   └── ProductManager.php  Catalogue queries, category filtering.
+│   │
+│   ├── Order/
+│   │   └── OrderManager.php    Order creation, retrieval, status updates.
+│   │
+│   ├── Inventory/
+│   │   └── InventoryManager.php Stock checks, deductions, admin updates.
+│   │
+│   ├── Payment/
+│   │   └── PaymentManager.php  Simulated payment processing + transaction records.
+│   │
+│   └── Reporting/
+│       └── ReportManager.php   Sales reports, low-stock alerts, dashboard stats.
+│
+├── templates/                  Reusable HTML partials.
+│   ├── header.php              Storefront nav, <head>, opens <main>.
+│   ├── footer.php              Storefront footer, closes </main>.
+│   ├── admin_header.php        Admin nav, <head>, opens admin <main>.
+│   └── admin_footer.php        Admin footer, closes admin <main>.
+│
+├── config/
+│   └── database.php            DB credentials (local dev — do not commit secrets).
+│
+├── database/
+│   └── schema.sql              Full DDL + sample data initialisation script.
+│
+├── .gitignore
+├── README.md
+└── project-folder-structure.txt

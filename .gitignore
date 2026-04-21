@@ -1,0 +1,27 @@
+# Dependencies
+/vendor/
+composer.lock
+
+# Environment / secrets
+.env
+config/infinity-free.php
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# OS files
+Desktop.ini
+ehthumbs.db
+
+# Logs
+*.log
+error_log
+
+# Compiled / cached
+*.cache
