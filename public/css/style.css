@@ -25,7 +25,7 @@
    1. FONTS & RESET
    ------------------------------------------------------- */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 *,
 *::before,
@@ -45,32 +45,32 @@ html {
 
 :root {
     /* Colour palette */
-    --color-bg:         #f5f6fa;
+    --color-bg:         #f9fafb;
     --color-surface:    #ffffff;
-    --color-border:     #e2e5ed;
-    --color-text:       #1e2a3a;
-    --color-text-muted: #5a6578;
+    --color-border:     #e5e7eb;
+    --color-text:       #111827;
+    --color-text-muted: #6b7280;
 
-    --color-primary:    #2563eb;
-    --color-primary-hover: #1d4ed8;
-    --color-accent:     #e8590c;
-    --color-accent-hover: #d14b08;
+    --color-primary:    #4f46e5;
+    --color-primary-hover: #4338ca;
+    --color-accent:     #f43f5e;
+    --color-accent-hover: #e11d48;
 
-    --color-success:    #16a34a;
-    --color-success-bg: #dcfce7;
-    --color-danger:     #dc2626;
+    --color-success:    #10b981;
+    --color-success-bg: #d1fae5;
+    --color-danger:     #ef4444;
     --color-danger-bg:  #fee2e2;
-    --color-warning:    #d97706;
+    --color-warning:    #f59e0b;
     --color-warning-bg: #fef3c7;
-    --color-info:       #0284c7;
-    --color-info-bg:    #e0f2fe;
+    --color-info:       #3b82f6;
+    --color-info-bg:    #dbeafe;
 
-    --color-nav:        #0f172a;
-    --color-nav-text:   #cbd5e1;
-    --color-footer:     #1e293b;
+    --color-nav:        #ffffff;
+    --color-nav-text:   #4b5563;
+    --color-footer:     #111827;
 
     /* Typography */
-    --font-sans:  'Inter', system-ui, -apple-system, sans-serif;
+    --font-sans:  'Outfit', system-ui, -apple-system, sans-serif;
     --fw-regular: 400;
     --fw-medium:  500;
     --fw-semi:    600;
@@ -86,20 +86,20 @@ html {
     --space-3xl: 4rem;
 
     /* Shape */
-    --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 16px;
-    --radius-full: 50%;
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
 
     /* Elevation */
-    --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.06);
-    --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.08);
-    --shadow-lg:  0 8px 24px rgba(0, 0, 0, 0.12);
-    --shadow-xl:  0 16px 48px rgba(0, 0, 0, 0.14);
+    --shadow-sm:  0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md:  0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg:  0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl:  0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
     /* Motion */
     --ease:      cubic-bezier(0.4, 0, 0.2, 1);
-    --duration:  0.25s;
+    --duration:  0.3s;
 }
 
 /* -------------------------------------------------------
@@ -168,13 +168,13 @@ img {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-sm);
 }
 
 .site-nav .logo {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: var(--fw-bold);
-    color: #ffffff;
+    color: var(--color-text);
     text-decoration: none;
     letter-spacing: -0.02em;
 }
@@ -213,7 +213,7 @@ img {
 
 .nav-links a:hover,
 .nav-links a:focus-visible {
-    color: #ffffff;
+    color: var(--color-primary);
     outline: none;
 }
 .nav-links a:hover::after,
@@ -227,6 +227,7 @@ img {
     font-size: 0.82rem;
 }
 .nav-links .nav-admin:hover {
+    color: var(--color-primary);
     opacity: 1;
 }
 
@@ -258,16 +259,20 @@ img {
     border: none;
     cursor: pointer;
     padding: var(--space-sm);
+    z-index: 1001; /* Above mobile drawer */
 }
 .menu-toggle span {
     display: block;
-    width: 22px;
+    width: 24px;
     height: 2px;
-    background: #fff;
+    background: var(--color-text);
     margin: 5px 0;
     transition: var(--duration) var(--ease);
     border-radius: 2px;
 }
+.menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* -------------------------------------------------------
    5. BUTTONS
@@ -392,11 +397,21 @@ img {
    ------------------------------------------------------- */
 
 .hero {
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #2563eb 100%);
+    background: linear-gradient(135deg, #4f46e5 0%, #f43f5e 100%);
+    position: relative;
+    overflow: hidden;
     color: #ffffff;
     text-align: center;
     padding: var(--space-3xl) 5%;
     margin-bottom: var(--space-xl);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+    transform: rotate(30deg);
 }
 
 .hero h1 {
@@ -1141,20 +1156,23 @@ body.admin-body {
     }
 
     .nav-links {
-        display: none;
-        position: absolute;
-        top: 64px;
-        left: 0;
-        right: 0;
-        background: var(--color-nav);
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: var(--color-surface);
         flex-direction: column;
-        padding: var(--space-md) 5%;
-        gap: 0;
-        box-shadow: var(--shadow-lg);
+        padding: 80px var(--space-xl) var(--space-xl);
+        gap: var(--space-lg);
+        box-shadow: var(--shadow-xl);
+        transition: right 0.4s var(--ease);
+        z-index: 1000;
+        display: flex;
     }
 
     .nav-links.open {
-        display: flex;
+        right: 0;
     }
 
     .nav-links li {
@@ -1164,7 +1182,14 @@ body.admin-body {
     .nav-links a {
         display: block;
         padding: 0.75rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        color: var(--color-text);
+        font-size: 1.1rem;
+        font-weight: var(--fw-semi);
+        border-bottom: 1px solid var(--color-border);
+    }
+    
+    .nav-links a::after {
+        display: none;
     }
 
     .hero h1 {

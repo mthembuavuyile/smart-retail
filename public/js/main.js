@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', function () {
             navLinks.classList.toggle('open');
+            menuToggle.classList.toggle('open');
         });
 
         // Close the menu when a link is tapped on mobile
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         links.forEach(function (link) {
             link.addEventListener('click', function () {
                 navLinks.classList.remove('open');
+                menuToggle.classList.remove('open');
             });
         });
     }
